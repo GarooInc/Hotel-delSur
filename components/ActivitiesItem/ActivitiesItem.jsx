@@ -3,14 +3,17 @@ import React, {useState, useEffect} from 'react'
 import PocketBase from 'pocketbase'
 import { FaLocationDot } from "react-icons/fa6"
 import { FaRegCalendar } from "react-icons/fa6"
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 
 
 const ActivitiesItem = () => {
     const [activities, setActivities] = useState([])
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
-    pb.autoCancellation(false);
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+    const pb = new PocketBase(backendUrl)
+    pb.autoCancellation(false)
 
     useEffect(() => {
         const fetchData = async () => {

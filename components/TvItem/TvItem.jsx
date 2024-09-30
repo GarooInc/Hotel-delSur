@@ -1,13 +1,16 @@
 "use client";
 import React, {useState, useEffect} from 'react'
 import PocketBase from 'pocketbase'
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 
 
 const TvItem = () => {
     const [channels, setChannels] = useState([])
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+    const pb = new PocketBase(backendUrl)
     pb.autoCancellation(false);
 
     useEffect(() => {

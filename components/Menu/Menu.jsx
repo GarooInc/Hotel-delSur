@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PocketBase from 'pocketbase';
 import { useCart } from '@/contexts/CartContext';
 import CartNotification from '@/components/CartNotification/CartNotification';
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const Menu = () => {
     const [food, setFood] = useState([]);
@@ -12,8 +13,10 @@ const Menu = () => {
     const [selectedVariants, setSelectedVariants] = useState({});
     const { dispatch } = useCart();
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana');
-    pb.autoCancellation(false);
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+    const pb = new PocketBase(backendUrl)
+    pb.autoCancellation(false)
 
     const selectVariant = (e, itemId) => {
         const selectedValue = e.target.value;

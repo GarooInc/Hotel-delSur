@@ -5,12 +5,15 @@ import { IoIosArrowDropleft } from "react-icons/io"
 import { useRouter } from "next/navigation"
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterItem from '@/components/FooterItem/FooterItem'
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const ExperiencePage = ({params}) => {
     const [experience, setExperience] = useState('')
     const router = useRouter()
 
-    const pb = new PocketBase('https://kaana.garooinc.com/kaana')
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+    const pb = new PocketBase(backendUrl)
     pb.autoCancellation(false)
 
     const current = params.experienceId
