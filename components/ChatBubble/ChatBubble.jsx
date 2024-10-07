@@ -3,10 +3,10 @@ import { TbHandClick } from "react-icons/tb"
 
 const ChatBubble = () => {
   return (
-    <div className="fixed bottom-4 cursor-pointer bg-cream rounded-full">
+    <div className="fixed bottom-4 cursor-pointer bg-gray-200 rounded-full">
       <a href="https://wa.me/5016101329" target="_blank" rel="noopener noreferrer" className='flex justify-center items-center p-2 gap-2'>
-            <span className='text-primary font-futura'>Chat with concierge</span>
-            <TbHandClick className="text-primary text-2xl -rotate-45" />
+            <span className='text-secondary font-futura'>Chat with concierge</span>
+            <TbHandClick className="text-secondary text-2xl -rotate-45" />
       </a>
     </div>
   )
