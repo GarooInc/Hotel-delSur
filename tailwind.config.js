@@ -33,6 +33,7 @@
         "primary": "#fcbc54",
         "secondary": "#0484c0",
         "tertiary": "#c4dce8",
+        "cream": "#f9f8f6",
       },
       placeholderColor: {
         'custom-green': '#6C7731',

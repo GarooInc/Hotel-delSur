@@ -3,8 +3,8 @@ import { CartProvider } from '@/contexts/CartContext'
 
 
 export const metadata = {
-    title: 'Itz Ana  Resort',
-    description: 'At Itz Ana resort, we offer luxury accommodations, adventure tours, and all-inclusive packages. ',
+    title: 'Hotel del Sur',
+    description: 'Hotel del Sur',
     url: '',
     image: '/assets/images/logo.png'
 }
