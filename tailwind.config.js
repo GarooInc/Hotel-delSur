@@ -30,17 +30,9 @@
         'futura-light': ['futura-light', 'sans-serif']
       },
       colors: {
-        "light-brown": "#9d8973",
-        "brown": "#917136",
-        "cream": "#ebe7dd",
-        "green": "#28433a",
-        "lightgreen": "#bad056",
-        "lightgray": "#555347",
-        "lightgreen": "#BAD056",
-        "redorange": "#FF3D1E",
-        "oxblood": "#AE2602",
-        "darkgray": "#333333",
-        "aqua":"#1f443a",
+        "primary": "#fcbc54",
+        "secondary": "#0484c0",
+        "tertiary": "#c4dce8",
       },
       placeholderColor: {
         'custom-green': '#6C7731',

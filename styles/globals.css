@@ -31,11 +31,11 @@
 }
 
 .principal_title{
-  @apply md:text-4xl text-2xl text-center text-light-brown font-futura font-bold;
+  @apply md:text-4xl text-2xl text-center text-primary font-futura font-bold;
 }
 
 .icon_activities{
-  @apply text-aqua text-lg;
+  @apply text-secondary text-lg;
 }
 
 .description_activities{
@@ -49,4 +49,8 @@
 
 .experiences ul li {
   margin-bottom: 1rem;
+}
+
+.info_container{
+  @apply w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
 }

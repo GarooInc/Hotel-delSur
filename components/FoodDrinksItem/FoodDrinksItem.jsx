@@ -41,25 +41,25 @@ const FoodDrinksItem = () => {
             {foodDrinks.map((item, index) => (
                 <div key={index} className={`rounded-b-2xl gap-2 flex flex-col w-full`}>
                     <div className='relative w-full'>
-                        <img className="w-full h-96 rounded-b-2xl object-cover relative" src={`https://kaana.garooinc.com/kaana/api/files/${item.collectionId}/${item.id}/${item.cover_img}?token=`} alt={item.name} />
+                        <img className="w-full h-96 rounded-b-2xl object-cover relative" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.cover_img}?token=`} alt={item.name} />
                         <div className="z-2 absolute bottom-0 left-0 backdrop-blur-lg rounded-b-2xl bg-black bg-opacity-50 w-full h-20 flex flex-col justify-center items-start p-4 gap-4">
                                 <h3 className="text-white text-xl leading-tight font-futura mt-2">{item.name}</h3>
                                 <p className="text-white text-md font-futuralight leading-none flex gap-2">
-                                    <MdLocationPin className="text-light-brown" />
+                                    <MdLocationPin className="text-primary" />
                                     {item.location}
                                 </p>
                         </div>
                     </div>
                     <div className='flex flex-col px-2'>
                         <div className='flex gap-2 justify-end items-center'>
-                            <TbClockHour3Filled className="text-light-brown" />
+                            <TbClockHour3Filled className="text-primary" />
                             <span className='text-black text-md font-futuralight leading-6 tracking-tight'>
                                 {item.open} - {item.closes}</span>
                         </div>
-                        <div className='flex flex-col gap-4 border-b border-light-brown pb-4'>
+                        <div className='flex flex-col gap-4 border-b border-primary pb-4'>
                             <h3 className="text-black text-base leading-tight font-futura mt-2">Description</h3>
                             <span className='text-black text-md font-futuralight leading-6 tracking-tight'>{item.description}</span>
-                            <button className='text-white bg-light-brown p-2 rounded md:w-40' onClick={() => openPdf(item)}>Menú</button>
+                            <button className='text-white bg-primary p-2 rounded md:w-40' onClick={() => openPdf(item)}>Menú</button>
                         </div>
                     </div>
                 </div>

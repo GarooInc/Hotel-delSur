@@ -24,15 +24,15 @@ export default async function RoomService({ params: { locale }}) {
             <div className="md:w-[40%] w-[90%] h-20 bg-white rounded-tl-2xl rounded-tr-2xl shadow-2xl border-black fixed bottom-0 flex justify-evenly" >
                 <div className="flex justify-center items-center gap-4 flex-col">
                     <a href="/" className="flex justify-center items-center gap-4">
-                        <TbHome className="text-3xl text-lightgray" />
+                        <TbHome className="text-3xl text-black" />
                     </a>
-                    <p className="text-xs text-lightgray font-futura">Home</p>
+                    <p className="text-xs text-black font-futura">Home</p>
                 </div>
                 <div className="flex justify-center items-center gap-4 flex-col">
                     <a href="/cart" className="flex justify-center items-center gap-4">
-                        <FaShoppingCart className="text-3xl text-lightgray" />
+                        <FaShoppingCart className="text-3xl text-black" />
                     </a>
-                    <p className="text-xs text-lightgray font-futura">Cart</p>
+                    <p className="text-xs text-black font-futura">Cart</p>
                 </div>
             </div>
         </main>

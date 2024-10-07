@@ -37,7 +37,7 @@ const ActivitiesItem = () => {
         { 
             activities.map((item, index) => (
                 <div key={index} className={`bg-white h-40 shadow rounded-lg gap-2 flex relative`}>
-                    <img className=" w-2/5 md:h-full w-40 rounded-lg object-cover" src={`https://kaana.garooinc.com/kaana/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
+                    <img className="md:h-full w-40 rounded-lg object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
                     <div className='flex flex-col gap-4  w-3/5'>
                         <h3 className="text-black text-lg leading-tight font-futura mt-2">{item.Title}</h3>
                         <div className="flex items-center text-black leading-none gap-2">
