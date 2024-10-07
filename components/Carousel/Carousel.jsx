@@ -14,7 +14,7 @@ const Carousel = ({images}) => {
                 {
                     index !== 0 && 
                     <button 
-                        className="absolute bg-aqua text-white p-2 rounded-full left-5"
+                        className="absolute bg-secondary text-white p-2 rounded-full left-5"
                         onClick={() => document.getElementById(`slide-${index - 1}`).scrollIntoView(false)}
                     >
                         <CgArrowLongLeft className='text-2xl text-cream' />
@@ -23,7 +23,7 @@ const Carousel = ({images}) => {
                 {
                     index !== images.length - 1 && 
                     <button 
-                        className="absolute bg-aqua text-white p-2 rounded-full right-5"
+                        className="absolute bg-secondary text-white p-2 rounded-full right-5"
                         onClick={() => document.getElementById(`slide-${index}`).scrollIntoView(false)}
                     >
                         <CgArrowLongRight className='text-2xl text-cream' />

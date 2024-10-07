@@ -81,7 +81,7 @@ const CartItem = () => {
                         <li key={index} className='bg-white px-2 pb-12 shadow rounded-lg gap-2 flex flex-col relative'>
                             <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura bg-redorange text-white px-2 py-1 absolute left-2" onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: item })}>X</button>
                             <img className="md:w-full md:h-32 w-40 h-48 rounded-lg object-cover" src={`https://hds.garooinc.com/api/files/${item.collectionId}/${item.id}/${item.Image}?token=`} alt={item.name} />
-                            <h3 className="text-black text-base leading-tight font-futura mt-2  w-full gap-4 flex">{item.Title} <span className='text-aqua'>£{item.Price}</span></h3>
+                            <h3 className="text-black text-base leading-tight font-futura mt-2  w-full gap-4 flex">{item.Title} <span className='text-secondary'>£{item.Price}</span></h3>
                             <p className="text-black text-xs font-futura leading-none">{item.Description}</p>
                             {
                                 item.variant && (
@@ -90,9 +90,9 @@ const CartItem = () => {
                             }
                             <div className="flex justify-between items-center absolute bottom-2">
                                 <div className="flex justify-between items-center shadow-xl w-full">
-                                        <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura  text-aqua px-2 py-1" onClick={() => dispatch({ type: 'DECREASE_ITEM', payload: item })}>-</button>
+                                        <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura  text-secondary px-2 py-1" onClick={() => dispatch({ type: 'DECREASE_ITEM', payload: item })}>-</button>
                                         <p className="text-black text-xs font-futura leading-none px-4">{item.quantity}</p>
-                                        <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura text-aqua px-2 py-1" onClick={() => dispatch({ type: 'INCREASE_ITEM', payload: item })}>+</button>
+                                        <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura text-secondary px-2 py-1" onClick={() => dispatch({ type: 'INCREASE_ITEM', payload: item })}>+</button>
                                 </div>
                             </div>
                         </li>
@@ -102,7 +102,7 @@ const CartItem = () => {
                 <p className='text-center font-futura'>Your cart is empty</p>
             )}
             {state.items.length > 0 && (
-                <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura bg-aqua text-white px-6 py-3 fixed bottom-2 right-2" onClick={() => setShowForm(true)}>Checkout</button>
+                <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura bg-secondary text-white px-6 py-3 fixed bottom-2 right-2" onClick={() => setShowForm(true)}>Checkout</button>
             )}
             {
                 showForm && (
@@ -116,7 +116,7 @@ const CartItem = () => {
                                 <input type="text" placeholder="Phone" className="rounded shadow p-2" onChange={handleChange} name="phone" />
                                 <input type="text" placeholder="Family" className="rounded shadow p-2" onChange={handleChange} name="family" />
                                 <input type="text" placeholder="Room" className="rounded shadow p-2" onChange={handleChange} name="room" />
-                                <button className="rounded shadow bg-aqua text-white p-2" onClick={(e) => onHandleSubmit(e)}>Submit</button>
+                                <button className="rounded shadow bg-secondary text-white p-2" onClick={(e) => onHandleSubmit(e)}>Submit</button>
                             </form>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ const AdventuresItem = () => {
                     <h3 className="text-black text-xl leading-tight font-futura mt-2">{item.title}</h3>
                     <p className="text-black text-md font-futuralight leading-6 tracking-tight">{item.short_Description}</p>
                     <p className="text-black text-xs font-light leading-none font-futura absolute bottom-2 left-2"> £{item.price}</p>
-                    <button className='text-white bg-aqua p-2 rounded  absolute bottom-2 right-2 font-futura'>Request a reservation</button>
+                    <button className='text-white bg-secondary p-2 rounded  absolute bottom-2 right-2 font-futura'>Request a reservation</button>
                 </div>
             ))}
         </div>
