@@ -6,42 +6,42 @@ import ButtonNav from '@/components/ButtonNav/ButtonNav'
 import ChatBubble from '@/components/ChatBubble/ChatBubble'
 import { HiInformationCircle } from "react-icons/hi2"
 
-const namespaces = ['home', 'header']
+const namespaces = ['menu', 'header']
 
 export default async function Home({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
     const nav = [
         {
-            title: "Welcome",
+            title: t('menu:nav1'),
             link: '/welcome'
         },
         {
-            title: "Amenities",
+            title: t('menu:nav2'),
             link: '/experiences'
         },
         {
-            title: "Food & Drinks",
+            title: t('menu:nav3'),
             link: '/food_drinks'
         },
         {
-            title: "Activities",
+            title: t('menu:nav4'),
             link: '/activities'
         },
         {
-            title: "Adventures",
+            title: t('menu:nav5'),
             link: '/adventures'
         },
         {
-            title: "Room Service",
+            title: t('menu:nav6'),
             link: '/roomservice'
         },
 
         {
-            title: "TV Guide",
+            title: t('menu:nav7'),
             link: '/tv'
         },
         {
-            title: "FAQs",
+            title: t('menu:nav8'),
             link: '/faqs'
         }
     ]
