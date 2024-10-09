@@ -5,7 +5,6 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import { FaShoppingCart } from "react-icons/fa"
 import Menu from '@/components/Menu/Menu'
 import { TbHome } from "react-icons/tb"
-import ArrowBack from '@/components/ArrowBack/ArrowBack'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 

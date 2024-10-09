@@ -1,7 +1,7 @@
 import React from 'react'
 import ArrowBack from '@/components/ArrowBack/ArrowBack'
 
-const HeaderItem = ({v, namePage}) => {
+const HeaderItem = ({namePage}) => {
   return (
     <div className={`w-full flex justify-center items-center  relative bg-white py-4 ${namePage ? 'py-4' : ''}`}>
         <ArrowBack absolute/>

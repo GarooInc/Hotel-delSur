@@ -11,7 +11,7 @@ const ArrowBack = ({absolute, white, nav }) => {
         if (nav) {
             router.push(nav)
         } else {
-            router.push('/')
+            router.back()
         }
     }
   return (
