@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import PocketBase from 'pocketbase';
 import { MdLocationPin } from "react-icons/md";
 import { TbClockHour3Filled } from "react-icons/tb";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
-
+import { useTranslation } from 'react-i18next';
 
 
 const FoodDrinksItem = () => {
     const [foodDrinks, setFoodDrinks] = useState([]);
+
+    const { i18n } = useTranslation();
+    const currentLocale = i18n.language;
 
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
@@ -58,7 +60,7 @@ const FoodDrinksItem = () => {
                         </div>
                         <div className='flex flex-col gap-4 border-b border-primary pb-4'>
                             <h3 className="text-black text-base leading-tight font-futura mt-2">Description</h3>
-                            <span className='text-black text-md font-futuralight leading-6 tracking-tight'>{item.description}</span>
+                            <span className='text-black text-md font-futuralight leading-6 tracking-tight'>{item[`description_${currentLocale}`]}</span>
                             <button className='text-white bg-primary p-2 rounded md:w-40' onClick={() => openPdf(item)}>Menú</button>
                         </div>
                     </div>
