@@ -52,5 +52,13 @@
 }
 
 .info_container{
-  @apply w-full pt-10 pb-20 md:pb-20 md:pt-10 flex flex-col justify-center items-center relative;
+  @apply w-full pb-20 md:pb-20 flex flex-col justify-center items-center relative;
+}
+
+.infodisplay{
+  @apply text-gray-500 font-futura text-lg;
+}
+
+.italictiempos_title{
+  @apply text-center text-4xl text-secondary italic py-4 font-futura;
 }

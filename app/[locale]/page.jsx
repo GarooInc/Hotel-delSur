@@ -28,19 +28,6 @@ export default async function Home({ params: { locale }}) {
             link: '/activities'
         },
         {
-            title: t('menu:nav5'),
-            link: '/adventures'
-        },
-        {
-            title: t('menu:nav6'),
-            link: '/roomservice'
-        },
-
-        {
-            title: t('menu:nav7'),
-            link: '/tv'
-        },
-        {
             title: t('menu:nav8'),
             link: '/faqs'
         }

@@ -20,10 +20,10 @@ export default async function Welcome({ params: { locale }}) {
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-    <div className="page">
+    <div className="page bg-gray-700">
         <div className="flex flex-col w-full h-screen">
-            <HeaderItem v={"v5"}/>
-            <div className="w-full md:h-3/5">
+            <HeaderItem/>
+            <div className="w-full md:h-[450px]">
                 <Carousel images={images} />
             </div>
             <div className='flex flex-col justify-center items-center w-full h-full bg-green p-10 md:p-14'>

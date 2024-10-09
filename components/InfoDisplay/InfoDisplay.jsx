@@ -29,17 +29,17 @@ const InfoDisplay = ({ collection }) => {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-center gap-4 py-10 md:w-3/4 px-10 w-full">
+        <div className="flex flex-col justify-center items-center gap-4 md:w-3/4 px-10 w-full">
             {
                 data.map((item, index) => (
-                    <div className="collapse collapse-arrow border-b border-cream w-full rounded-none" key={index}>
+                    <div className="collapse collapse-arrow border-b border-gray-200 w-full rounded-lg shadow-lg" key={index}>
                         {/* Cambiado a checkbox */}
                         <input type="checkbox" className="peer" />
                         <div className="collapse-title text-xl font-medium text-secondary font-tiempos peer-checked:collapse-open">
                             {item[`title_${currentLocale}`]}
                         </div>
                         <div className="collapse-content peer-checked:collapse-open">
-                            <p className='text-secondary font-futura infodisplay'
+                            <p className='infodisplay'
                                 dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}>
                             </p>
                         </div>
