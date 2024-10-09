@@ -12,19 +12,14 @@ const namespaces = ['welcome', 'header']
 
 export default async function Welcome({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
-    const images = []
-
-    for (let i = 2; i < 9; i++) {
-        images.push(`/assets/images/welcome/welcome${i}.jpg`)
-    }
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
     <div className="page bg-gray-700">
-        <div className="flex flex-col w-full h-screen">
+        <div className="flex flex-col w-full">
             <HeaderItem/>
-            <div className="w-full md:h-[450px]">
-                <Carousel images={images} />
+            <div className="w-full md:h-[480px]">
+                <Carousel />
             </div>
             <div className='flex flex-col justify-center items-center w-full h-full bg-green p-10 md:p-14'>
                 <h1 className="principal_title">{t('welcome:title_main')}</h1>

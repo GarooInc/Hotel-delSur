@@ -2,14 +2,35 @@
 import React from 'react'
 import { CgArrowLongRight } from "react-icons/cg"
 import { CgArrowLongLeft } from "react-icons/cg"
+import { useState, useEffect } from 'react'
+import PocketBase from 'pocketbase'
+const Carousel = () => {
 
-const Carousel = ({images}) => {
+    const [data, setData] = useState([]);
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+    const pb = new PocketBase(backendUrl)
+
+    pb.autoCancellation(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const records = await pb.collection("welcome").getFullList({
+                });
+                setData(records);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+        fetchData();
+    }, []);
 
   return (
 <div className="carousel w-full h-full">
-    {images.map((image, index) => (
+    {data.map((image, index) => (
         <div id={`slide-${index}`} key={index} className="carousel-item relative w-full">
-            <img src={image} alt={`slide-${index}`} className="w-full object-cover" />
+            <img src={`${backendUrl}/api/files/${image.collectionId}/${image.id}/${image.carousel_img}?token=`} alt={`slide-${index}`} className="w-full object-cover" />
             <div className="absolute top-1/2 flex -translate-y-1/2 transform justify-between">
                 {
                     index !== 0 && 
@@ -21,7 +42,7 @@ const Carousel = ({images}) => {
                     </button>
                 }
                 {
-                    index !== images.length - 1 && 
+                    index !== data.length &&
                     <button 
                         className="absolute bg-primary text-white p-2 rounded-full right-5"
                         onClick={() => document.getElementById(`slide-${index}`).scrollIntoView(false)}
