@@ -7,7 +7,7 @@ import ArrowBack from '@/components/ArrowBack/ArrowBack'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 
-const namespaces = ['experiences', 'header']
+const namespaces = ['menu', 'header']
 
 export default async function Experiences({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
@@ -16,7 +16,7 @@ return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <HeaderItem v={"v5"}/>
         <div className="page bg-white py-10 md:px-20 px-10">
-            <h1 className="principal_title">Amenities</h1>
+            <h1 className="principal_title">{t('menu:nav2')}</h1>
             <ExperiencesItem />
         </div>
         <LanguageSwitcher />
