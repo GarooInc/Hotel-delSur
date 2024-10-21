@@ -63,11 +63,23 @@ const TabCartItem = ({ collection }) => {
             </div>
             <div className="tabCart_container">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className={`bg-white px-2 pb-16 gap-2 flex flex-col relative ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
+                    <div key={index} className={`bg-white px-4 pb-16 gap-2 flex flex-col relative min-w-60 ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
                         <img className="tabCart_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
-                        <h3 className="tabCart_title">{item[`title_${currentLocale}`]}</h3>
-                        <p className="text-black text-md font-futuralight leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`description_${currentLocale}`] }}></p>
-                        <p className="text-light-brown text-xs  leading-none font-futura font-bold"> £{item.price}</p>
+                        {
+                            item[`title_${currentLocale}`] && (
+                                <h3 className="tabCart_title">{item[`title_${currentLocale}`]}</h3>
+                            )
+                        }
+                        {
+                            item[`desc_${currentLocale}`] && (
+                                <p className="text-black text-md font-futuralight leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`description_${currentLocale}`] }}></p>
+                            )
+                        }
+                        {
+                            item.price != 0 && (
+                                <p className="text-light-brown text-xs  leading-none font-futura font-bold"> ¢{item.price}</p>
+                            )
+                        }
                         <button className='secondary_button w-[200px] absolute bottom-4' onClick={() => addToCart(item)}>Request a reservation</button>
                     </div>
                 ))}

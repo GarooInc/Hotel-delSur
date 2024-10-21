@@ -24,6 +24,18 @@ export default async function Home({ params: { locale }}) {
             link: '/spa'
         },
         {
+            title: t('menu:nav10'),
+            link: '/promos'
+        },
+        {
+            title: t('menu:nav11'),
+            link: '/emergency'
+        },
+        {
+            title: t('menu:nav12'),
+            link: '/laundry'
+        },
+        {
             title: t('menu:nav3'),
             link: '/food_drinks'
         },
