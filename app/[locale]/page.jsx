@@ -36,6 +36,14 @@ export default async function Home({ params: { locale }}) {
             link: '/laundry'
         },
         {
+            title: t('menu:nav13'),
+            link: '/policies'
+        },
+        {
+            title: t('menu:nav14'),
+            link: '/events'
+        },
+        {
             title: t('menu:nav3'),
             link: '/food_drinks'
         },
