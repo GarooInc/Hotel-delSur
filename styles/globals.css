@@ -38,8 +38,8 @@
   @apply text-secondary text-lg;
 }
 
-.description_activities{
-  @apply text-black text-xs font-futura;
+.description_page_general{
+  @apply md:w-1/2 w-3/4  bg-white rounded-lg shadow p-4 my-10 font-futura text-black text-center;
 }
 
 .experiences ul {
@@ -61,4 +61,88 @@
 
 .italictiempos_title{
   @apply text-center text-4xl text-secondary italic py-4 font-futura;
+}
+
+/* tabitem */
+.tabCart_container{
+  @apply grid grid-cols-1 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto md:px-10 pb-20;
+}
+
+.tabCart_img{
+  @apply md:w-full w-full h-48 md:h-52 object-cover;
+}
+
+.tabCart_title{
+  @apply text-secondary text-xl leading-tight mt-2;
+}
+
+.button_line{
+    @apply  border-b-2 border-secondary px-6 py-2 mt-2 text-sm font-futura;
+}
+
+/* cart item */
+.cart_container{
+  @apply bg-cream w-80 md:w-[450px] md:p-10 py-10 px-4 h-screen;
+}
+
+.cart_items{
+  @apply py-10 flex flex-col overflow-y-scroll h-[90%];
+}
+
+.remove_button{
+  @apply justify-start items-center text-xs inline-flex font-futura bg-transparent text-black px-2 py-1 absolute right-2 border border-black;
+}
+
+.cart_image{
+  @apply md:w-40 w-32 h-40 object-cover;
+}
+
+.quantity_button{
+  @apply flex justify-between items-center shadow-xl w-full border border-black;
+}
+
+.quantity_button_inner{
+  @apply  shadow justify-start items-center text-xs inline-flex font-futura  text-secondary px-2 py-1;
+}
+
+.quantity_text{
+  @apply text-black text-xs font-futura leading-none px-4;
+}
+
+.item_title{
+  @apply text-black md:text-base text-xs leading-tight font-futura mt-8 w-full gap-4 flex flex-col;
+}
+
+.checkout_button{
+  @apply text-secondary fixed bottom-4 right-4 font-futura flex gap-2 justify-center items-center;
+}
+
+/* checkout */
+.checkout_form{
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center;
+}
+
+.form_container{
+  @apply flex flex-col gap-4 mt-4;
+}
+
+.msg_container{
+  @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center;
+}
+
+.cst_message{
+  @apply bg-white rounded-lg p-6 w-80 flex flex-col justify-center items-center relative;
+}
+
+.close_btn {
+  @apply text-black text-2xl absolute top-2 right-2;
+}
+
+/* cart */
+.cart_bubble{
+  @apply absolute top-0 right-0 bg-secondary text-white rounded-full w-4 h-4 flex items-center justify-center text-xs;
+}
+
+.secondary_button{
+  @apply text-secondary border-2 border-secondary rounded-full px-6 py-2 mt-2 text-sm font-futura;
 }

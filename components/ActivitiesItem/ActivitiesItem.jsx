@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react'
 import PocketBase from 'pocketbase'
 import { FaLocationDot } from "react-icons/fa6"
 import { FaRegCalendar } from "react-icons/fa6"
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
-
 
 
 const ActivitiesItem = () => {

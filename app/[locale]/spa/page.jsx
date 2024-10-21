@@ -1,28 +1,31 @@
 import React from 'react'
 import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
+import TabCartItem from '@/components/TabCartItem/TabCartItem'
+import FooterCart from '@/components/FooterCart/FooterCart'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
-import ActivitiesItem from '@/components/ActivitiesItem/ActivitiesItem'
 
 
-const namespaces = ['activities', 'header']
+const namespaces = ['spa', 'home']
 
-export default async function Activities({ params: { locale }}) {
+export default async function Spa({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <div className="page bg-white">
-            <div className="flex flex-col w-full items-center">
-                <HeaderItem />
+        <div className="page bg-white md:px-20 px-10 relative">
+            <HeaderItem />
+            <div className='flex flex-col justify-center items-center'>
+                <h1 className="italictiempos_title">{t('spa:title')}</h1>
                 <div className="description_page_general">
-                    {t('activities:rich_text1')}
+                    {t('spa:text1')}
                 </div>
-                <ActivitiesItem />
             </div>
+            <LanguageSwitcher />
+            <TabCartItem collection={"spa"} />
+            <FooterCart />
         </div>
-        <LanguageSwitcher />
     </TranslationsProvider>
   )
 }
