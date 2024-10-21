@@ -7,7 +7,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 
-const namespaces = ['spa', 'home']
+const namespaces = ['spa', 'home', 'general']
 
 export default async function Spa({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)

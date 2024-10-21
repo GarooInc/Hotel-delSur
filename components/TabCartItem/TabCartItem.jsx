@@ -47,14 +47,19 @@ const TabCartItem = ({ collection }) => {
         }, 3000);
     };
 
-    const uniqueTags = [...new Set(items?.map(item => item.tag))];
-    const filteredItems = filter !== null ? items.filter(item => item.tag === filter) : items;
+    const uniqueTags_es = [...new Set(items?.map(item => item.tag_es))];
+    const uniqueTags_en = [...new Set(items?.map(item => item.tag_en))];
+    const filteredItems = filter !== null ? items.filter(item => item.tag_es === filter || item.tag_en === filter) : items;
 
     return (
         <div className='flex flex-col gap-10'>
             <div className='flex gap-4 justify-center items-center md:flex-row flex-col'>
                 {
-                    uniqueTags?.map((tag, index) => (
+                    currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
+                        <button key={index} className={`button_line ${filter === tag ? 'bg-secondary text-white' : 'text-secondary'}`} onClick={() => setFilter(tag)}>
+                            {tag}
+                        </button>
+                    )) : uniqueTags_en.map((tag, index) => (
                         <button key={index} className={`button_line ${filter === tag ? 'bg-secondary text-white' : 'text-secondary'}`} onClick={() => setFilter(tag)}>
                             {tag}
                         </button>
@@ -80,7 +85,7 @@ const TabCartItem = ({ collection }) => {
                                 <p className="text-light-brown text-xs  leading-none font-futura font-bold"> ¢{item.price}</p>
                             )
                         }
-                        <button className='secondary_button w-[200px] absolute bottom-4' onClick={() => addToCart(item)}>Request a reservation</button>
+                        <button className='secondary_button w-[200px] absolute bottom-4' onClick={() => addToCart(item)}>{t('general:services')}</button>
                     </div>
                 ))}
                 {notification && <CartNotification productName={actualProduct.title} productImage={`${backendUrl}/api/files/${actualProduct.collectionId}/${actualProduct.id}/${actualProduct.image}?token=`} productVariant={actualProduct.Variant} />}

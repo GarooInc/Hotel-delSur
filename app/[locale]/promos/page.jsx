@@ -7,7 +7,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 
-const namespaces = ['promos', 'home']
+const namespaces = ['promos', 'home', 'general']
 
 export default async function Promos({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)

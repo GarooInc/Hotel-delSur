@@ -7,7 +7,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 
 
-const namespaces = ['laundry', 'home']
+const namespaces = ['laundry', 'home', 'general']
 
 export default async function Laundry({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
