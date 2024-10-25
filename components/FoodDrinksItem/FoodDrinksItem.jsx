@@ -56,12 +56,18 @@ const FoodDrinksItem = () => {
                     <div className='flex flex-col px-2'>
                         <div className='flex gap-2 justify-end items-center'>
                             <TbClockHour3Filled className="text-primary" />
-                            <span className='text-black text-md font-futuralight leading-6 tracking-tight'>
-                                {item.open} - {item.closes}</span>
+                            <span className='food_drinks_text'>
+                            {item[`schedule1_${currentLocale}`] && (
+                                <span>
+                                    {item[`schedule1_${currentLocale}`]} 
+                                    {item[`schedule2_${currentLocale}`] ? ` - ${item[`schedule2_${currentLocale}`]}` : ''}
+                                </span>
+                            )}
+                            </span>
                         </div>
                         <div className='flex flex-col gap-4 border-b border-primary pb-4'>
                             <h3 className="text-black text-base leading-tight font-futura mt-2">{t('food_drinks:desc')}</h3>
-                            <span className='text-black text-md font-futuralight leading-6 tracking-tight'>{item[`description_${currentLocale}`]}</span>
+                            <span className='food_drinks_text'>{item[`description_${currentLocale}`]}</span>
                             <button className='text-white bg-primary p-2 rounded md:w-40' onClick={() => openPdf(item)}>Menú</button>
                         </div>
                     </div>
