@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useCart } from '@/contexts/CartContext'
 import { useRouter } from "next/navigation"
 import { CgArrowLongRight, CgShoppingCart } from 'react-icons/cg'
@@ -15,6 +15,7 @@ const CartItem = ({ showCart }) => {
     const [showForm, setShowForm] = useState(false)
     const [isOpen, setIsOpen] = useState(true)
     const [removingItem, setRemovingItem] = useState(null)
+    const cartRef = useRef(null) 
 
     const [form, setForm] = useState({
         phone: '',
@@ -31,16 +32,14 @@ const CartItem = ({ showCart }) => {
     }
 
     const onHandleSubmit = async (event) => {
-        console.log(form)
+        event.preventDefault()
         const items = state.items.map(item => ({
             "itemName": item.Title || item.title,
             "variant": item.Variant,
             "price": parseFloat(item.Price),
             "quantity": item.quantity
         }))
-        console.log("Items", items)
-
-        event.preventDefault()
+        
         const response = await fetch(`${ordersUrl}/api/v1/orders`, {
             method: 'POST',
             headers: {
@@ -55,13 +54,11 @@ const CartItem = ({ showCart }) => {
         })
 
         if (response.ok) {
-            console.log('Order created')
             setMessage('Order created successfully')
             dispatch({ type: 'LOAD_ITEMS', payload: [] })
             setShowForm(false)
         } else {
             setMessage('Error creating order')
-            console.log('Error')
         }
     }
 
@@ -87,6 +84,20 @@ const CartItem = ({ showCart }) => {
         }, 300)
     }
 
+    const handleClickOutside = (event) => {
+        if (cartRef.current && !cartRef.current.contains(event.target)) {
+            setIsOpen(false)
+            showCart(false)
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
+
     const variants = {
         open: { opacity: 1, x: 0 },
         closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
@@ -97,7 +108,7 @@ const CartItem = ({ showCart }) => {
 
     return (
         <>
-        <motion.div className="cart_container" animate={isOpen ? "open" : "closed"} variants={variants} initial="closed">
+        <motion.div ref={cartRef} className="cart_container" animate={isOpen ? "open" : "closed"} variants={variants} initial="closed">
             <div className="flex justify-between items-center">
                 <button onClick={onHandleCloseCart}><TfiClose className="text-black text-2xl" /></button>
             </div>
