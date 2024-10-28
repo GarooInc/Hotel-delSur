@@ -38,7 +38,7 @@ const ActivitiesItem = () => {
 
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense auto-rows-auto px-10 py-10">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense auto-rows-auto px-10 pb-10">
         { 
             activities.map((item, index) => (
                 <div key={index} className={`bg-white h-52 shadow rounded-lg gap-2 flex relative`}>
