@@ -84,13 +84,13 @@ const Menu = () => {
     };
 
     return (
-        <div className='flex flex-col gap-10 pt-10 pb-20 md:px-10 px-8 w-full'>
+        <div className='menu_container'>
             <div className="relative w-full">
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-white to-transparent h-full w-10 z-1 flex items-center justify-start cursor-pointer" onClick={scrollLeft}>
+                <div className="menu_arrow_left" onClick={scrollLeft}>
                     <IoIosArrowBack className="text-gray-500" />
                 </div>
                 <div className="w-full overflow-x-auto" ref={scrollContainerRef}>
-                    <div className='flex gap-4 justify-start items-center w-max whitespace-nowrap px-10'>
+                    <div className='menu_items_container'>
                         {
                             currentLocale === 'es' ? uniqueTags_es.map((tag, index) => (
                                 <button key={index} className={`button_line ${filter === tag ? 'bg-secondary text-white' : 'text-secondary'}`} onClick={() => setFilter(tag)}>
@@ -104,16 +104,16 @@ const Menu = () => {
                         }
                     </div>
                 </div>
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-white to-transparent h-full w-10 z-1 flex items-center justify-end cursor-pointer" onClick={scrollRight}>
+                <div className="menu_arrow_right" onClick={scrollRight}>
                     <IoIosArrowForward className="text-gray-500" />
                 </div>
             </div>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto">
+            <div className="menu_grid">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className={`bg-white px-2 pb-12 shadow rounded-lg gap-2 flex flex-col relative ${index % 3 === 0 ? 'mb-6 md:m-0 ' : ''}`}>
-                        <h3 className="text-black text-base leading-tight font-futura mt-2">{item[`title_${currentLocale}`]}</h3>
-                        <p className="text-black text-xs font-[futura light] leading-none">{item[`desc_${currentLocale}`]}</p>
-                        <p className="text-black text-xs font-light leading-none font-futura absolute bottom-2 left-2"> ₡{prices[item.id] || item.price}</p>
+                    <div key={index} className={`menu_item ${index % 3 === 0 ? 'mb-6 md:m-0 ' : ''}`}>
+                        <h3 className="menu_title">{item[`title_${currentLocale}`]}</h3>
+                        <p className="menu_desc">{item[`desc_${currentLocale}`]}</p>
+                        <p className="menu_price"> ₡{prices[item.id] || item.price}</p>
                         {item.Variants && (
                             <div className='flex flex-col'>
                                 <label className="text-sm font-futura text-black mt-2">Variants</label>
@@ -126,7 +126,7 @@ const Menu = () => {
                                 </select>
                             </div>
                         )}
-                        <button className="rounded shadow justify-start items-center text-xs inline-flex font-futura bg-primary text-black px-2 py-1 absolute bottom-2 right-2" onClick={() => addToCart(item)}>Add to cart</button>
+                        <button className="addtocart_button" onClick={() => addToCart(item)}>Add to cart</button>
                     </div>
                 ))}
                 {notification && <CartNotification productName={actualProduct[`title_${currentLocale}`]} productVariant={actualProduct.variant} />}

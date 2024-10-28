@@ -168,3 +168,44 @@
 .icon_phone{
   @apply mr-2 text-white text-2xl;
 }
+
+/* Menu */
+.menu_container{
+  @apply flex flex-col gap-10 pt-10 pb-20 md:px-10 px-8 w-full;
+}
+
+.menu_arrow_left{
+  @apply absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-white to-transparent h-full w-10 z-[1px] flex items-center justify-start cursor-pointer;
+}
+
+.menu_arrow_right{
+  @apply absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-l from-white to-transparent h-full w-10 z-[1px] flex items-center justify-end cursor-pointer;
+}
+
+.menu_items_container{
+  @apply flex gap-4 justify-start items-center w-max whitespace-nowrap px-10;
+}
+
+.menu_grid{
+  @apply grid grid-cols-1 gap-4 md:grid-cols-4 grid-flow-row-dense auto-rows-auto;
+}
+
+.addtocart_button{
+  @apply rounded shadow justify-start items-center text-xs inline-flex font-futura bg-primary text-black px-2 py-1 absolute bottom-2 right-2;
+}
+
+.menu_item{
+  @apply bg-white px-2 pb-12 shadow rounded-lg gap-2 flex flex-col relative;
+}
+
+.menu_title{
+  @apply text-black text-base leading-tight font-futura mt-2;
+}
+
+.menu_price{
+  @apply text-black text-xs font-light leading-none font-futura absolute bottom-2 left-2;
+}
+
+.menu_desc{
+  @apply text-black text-xs font-futura-light leading-none;
+}
