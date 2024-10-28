@@ -82,7 +82,7 @@
 
 /* cart item */
 .cart_container{
-  @apply bg-cream w-80 md:w-[450px] md:p-10 py-10 px-4 h-screen;
+  @apply bg-cream w-80 md:w-[450px] md:p-10 py-10 px-4 h-screen z-10;
 }
 
 .cart_items{

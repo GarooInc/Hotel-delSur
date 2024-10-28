@@ -19,8 +19,8 @@ const FooterCart = () => {
     }
 
   return (
-    <div className='fixed bottom-0 w-full bg-white'>
-        <div className="absolute bottom-24 right-10 flex justify-evenly gap-4 pt-4" >
+    <div className='fixed bottom-0 w-full bg-white p-4'>
+        <div className=" flex justify-evenly gap-4 pt-4" >
             <CgHome className="text-3xl text-black" onClick={() => router.push('/')} />
             <div className="relative">
                 <CgShoppingCart className="text-3xl text-black" onClick={handleShowCart} />
@@ -31,7 +31,6 @@ const FooterCart = () => {
                     )}
             </div>
         </div>
-        <FooterItem />
         {showCart && <div className="absolute bottom-0 right-0">
             <CartItem showCart= {handleShowCart} />
         </div>}

@@ -99,7 +99,6 @@ const CartItem = ({ showCart }) => {
         <>
         <motion.div className="cart_container" animate={isOpen ? "open" : "closed"} variants={variants} initial="closed">
             <div className="flex justify-between items-center">
-                <CgShoppingCart className="text-3xl text-black" />
                 <button onClick={onHandleCloseCart}><TfiClose className="text-black text-2xl" /></button>
             </div>
             {state.items.length > 0 ? (
@@ -112,9 +111,13 @@ const CartItem = ({ showCart }) => {
                             variants={variants}
                         >
                             <button className="remove_button" onClick={() => handleRemoveItem(item)}>X</button>
-                            <img className="cart_image" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                            {
+                                item.image && (
+                                    <img className="cart_image" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                                )
+                            }
                             <div className='flex flex-col justify-between w-full'>
-                                <h3 className="item_title">{item.title || item.Title} <span className='text-aqua'>£{item.Price}</span></h3>
+                                <h3 className="item_title">{item.title || item.Title} <span className='text-secondary'>₡{item.Price}</span></h3>
                                 {item.variant && (
                                     <p className='text-gray text-xs font-futura leading-none'>Variant: {item.Variant}</p>
                                 )}

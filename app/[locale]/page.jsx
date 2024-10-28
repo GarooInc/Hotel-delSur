@@ -20,6 +20,10 @@ export default async function Home({ params: { locale }}) {
             link: '/experiences'
         },
         {
+            title: t('menu:nav6'),
+            link: '/roomservice'
+        },
+        {
             title: t('menu:nav9'),
             link: '/spa'
         },
