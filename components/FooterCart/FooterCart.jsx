@@ -19,8 +19,8 @@ const FooterCart = () => {
     }
 
   return (
-    <div className='fixed bottom-0 w-full'>
-        <div className="absolute bottom-24 right-10 flex justify-evenly pt-4" >
+    <div className='fixed bottom-0 w-full bg-white'>
+        <div className="absolute bottom-24 right-10 flex justify-evenly gap-4 pt-4" >
             <CgHome className="text-3xl text-black" onClick={() => router.push('/')} />
             <div className="relative">
                 <CgShoppingCart className="text-3xl text-black" onClick={handleShowCart} />

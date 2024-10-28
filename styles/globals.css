@@ -69,7 +69,7 @@
 }
 
 .tabCart_img{
-  @apply md:w-full w-full h-48 md:h-52 object-cover;
+  @apply md:w-full w-full md:h-52 object-cover;
 }
 
 .tabCart_title{
