@@ -41,7 +41,7 @@ const ActivitiesItem = () => {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense auto-rows-auto px-10 py-10">
         { 
             activities.map((item, index) => (
-                <div key={index} className={`bg-white h-48 shadow rounded-lg gap-2 flex relative`}>
+                <div key={index} className={`bg-white h-52 shadow rounded-lg gap-2 flex relative`}>
                     <img className="md:h-full w-48 rounded-lg object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
                     <div className='flex flex-col gap-2  w-3/5'>
                         <h3 className="text-black text-lg leading-tight font-futura mt-2">{item[`title_${currentLocale}`]}</h3>
