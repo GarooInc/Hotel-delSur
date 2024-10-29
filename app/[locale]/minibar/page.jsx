@@ -6,9 +6,9 @@ import Menu from '@/components/Menu/Menu'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import FooterCart from '@/components/FooterCart/FooterCart'
 
-const namespaces = ['room-service', 'header']
+const namespaces = ['minibar', 'header']
 
-export default async function RoomService({ params: { locale }}) {
+export default async function Minibar({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
 
 
@@ -17,8 +17,8 @@ export default async function RoomService({ params: { locale }}) {
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <main className="page bg-white">
             <HeaderItem v2 />
-            <Menu collection={"Room_Service"}/>
-            <FooterCart />
+            <Menu collection={"Room_Service_Bar"}/>
+            <FooterCart/>
         </main>
         <LanguageSwitcher />
         </TranslationsProvider>

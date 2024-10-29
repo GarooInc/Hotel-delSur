@@ -6,7 +6,7 @@ import CartNotification from '@/components/CartNotification/CartNotification';
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const Menu = () => {
+const Menu = ({collection}) => {
     const [food, setFood] = useState([]);
     const [notification, setNotification] = useState(false);
     const [actualProduct, setActualProduct] = useState({});
@@ -37,7 +37,7 @@ const Menu = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const records = await pb.collection('Room_Service').getFullList({
+                const records = await pb.collection(collection).getFullList({
                     sort: '-created',
                 });
                 console.log(records);

@@ -24,6 +24,10 @@ export default async function Home({ params: { locale }}) {
             link: '/roomservice'
         },
         {
+            title: t('menu:nav15'),
+            link: '/minibar'
+        },
+        {
             title: t('menu:nav9'),
             link: '/spa'
         },

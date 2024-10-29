@@ -183,7 +183,7 @@
 }
 
 .menu_items_container{
-  @apply flex gap-4 justify-start items-center w-max whitespace-nowrap px-10;
+  @apply flex gap-4 justify-center items-center whitespace-nowrap px-10;
 }
 
 .menu_grid{
