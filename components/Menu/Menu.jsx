@@ -57,6 +57,7 @@ const Menu = ({collection}) => {
             Variant: selectedVariants[item.id],
             Price: prices[item.id] || item.price,
         };
+        console.log(updatedItem);
         dispatch({ type: 'ADD_ITEM', payload: updatedItem });
         setNotification(true);
         setActualProduct(updatedItem);
@@ -113,14 +114,16 @@ const Menu = ({collection}) => {
                     <div key={index} className={`menu_item ${index % 3 === 0 ? 'mb-6 md:m-0 ' : ''}`}>
                         <h3 className="menu_title">{item[`title_${currentLocale}`]}</h3>
                         <p className="menu_desc">{item[`desc_${currentLocale}`]}</p>
-                        <p className="menu_price"> ₡{prices[item.id] || item.price}</p>
-                        {item.Variants && (
+                        {item.price !== 0 && (
+                            <p className="menu_price"> ₡{prices[item.id] || item.price}</p>
+                        )}
+                        {item.variants && (
                             <div className='flex flex-col'>
                                 <label className="text-sm font-futura text-black mt-2">Variants</label>
                                 <select className="bg-white font-futura text-xs" onChange={(e) => selectVariant(e, item.id)}>
-                                    {Object.entries(item.Variants).map(([key, value]) => (
+                                    {Object.entries(item.variants).map(([key, value]) => (
                                         <option key={key} value={value}>
-                                            {`${key} - £${value}`}
+                                            {`${key} - ₡${value}`}
                                         </option>
                                     ))}
                                 </select>

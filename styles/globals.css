@@ -98,7 +98,7 @@
 }
 
 .quantity_button{
-  @apply flex justify-between items-center shadow-xl w-full border border-black;
+  @apply flex justify-between items-center shadow-xl w-full border border-black my-2;
 }
 
 .quantity_button_inner{

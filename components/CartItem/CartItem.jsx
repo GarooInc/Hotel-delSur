@@ -139,8 +139,8 @@ const CartItem = ({ showCart }) => {
                             }
                             <div className='flex flex-col justify-between w-full'>
                                 <h3 className="item_title">{item.title || item.Title} <span className='text-secondary'>₡{item.Price}</span></h3>
-                                {item.variant && (
-                                    <p className='text-gray text-xs font-futura leading-none'>Variant: {item.Variant}</p>
+                                {item.Variant && (
+                                    <p className='text-gray text-xs font-futura leading-none'>{item.Variant}</p>
                                 )}
                                 <div className="quantity_button">
                                     <button className="quantity_button_inner" onClick={() => dispatch({ type: 'DECREASE_ITEM', payload: item })}>-</button>
