@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 const CartNotification = ({productName, productImage, productVariant}) => {
     const router = useRouter()
   return (
-    <div className="fixed shadow-lg top-0 right-4 bg-white text-primary p-10 z-10">
+    <div className="fixed shadow-lg top-0 right-4 bg-white text-black p-10 z-10 w-60">
         <div className="flex items-center gap-4 flex-col">
             {
                 productImage && (
