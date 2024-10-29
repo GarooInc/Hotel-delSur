@@ -138,6 +138,19 @@
   @apply text-black text-2xl absolute top-2 right-2;
 }
 
+
+.input_cart, .react-tel-input .form-control{
+  @apply bg-white font-futura text-black px-2;
+}
+
+.input_cart, .react-tel-input .form-control{
+  width: 100% !important;
+  border-radius: 0px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  margin : 0px !important;
+}
+
 /* cart */
 .cart_bubble{
   @apply absolute top-0 right-0 bg-secondary text-white rounded-full w-4 h-4 flex items-center justify-center text-xs;
