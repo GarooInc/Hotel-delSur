@@ -179,7 +179,7 @@
 }
 
 .icon_phone{
-  @apply mr-2 text-white text-2xl;
+  @apply mr-2 text-black text-2xl;
 }
 
 /* Menu */

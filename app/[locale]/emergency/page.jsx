@@ -14,7 +14,7 @@ export default async function Emergency({ params: { locale }}) {
 
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <div className="page bg-green">
+        <div className="page bg-white">
             <HeaderItem v={"v5"} />
             <div className='info_container'>
                 <h2 className='italictiempos_title'>{t('emergency:title')}</h2>
