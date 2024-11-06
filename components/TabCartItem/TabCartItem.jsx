@@ -77,7 +77,7 @@ const TabCartItem = ({ collection }) => {
                         }
                         {
                             item[`desc_${currentLocale}`] && (
-                                <p className="text-black text-md font-futuralight leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`description_${currentLocale}`] }}></p>
+                                <p className="text-black text-md font-futuralight leading-6 tracking-tight" dangerouslySetInnerHTML={{ __html: item[`desc_${currentLocale}`] }}></p>
                             )
                         }
                         {

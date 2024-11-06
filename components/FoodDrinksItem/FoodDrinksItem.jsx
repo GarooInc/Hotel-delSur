@@ -49,7 +49,7 @@ const FoodDrinksItem = () => {
                                 <h3 className="text-white text-xl leading-tight font-futura mt-2">{item.name}</h3>
                                 <p className="text-white text-md font-futuralight leading-none flex gap-2">
                                     <MdLocationPin className="text-primary" />
-                                    {item.location}
+                                    {item[`location_${currentLocale}`]}
                                 </p>
                         </div>
                     </div>

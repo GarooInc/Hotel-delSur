@@ -18,14 +18,14 @@ export default async function Emergency({ params: { locale }}) {
             <HeaderItem v={"v5"} />
             <div className='info_container'>
                 <h2 className='italictiempos_title'>{t('emergency:title')}</h2>
-                <InfoDisplay collection="Emergency" />
+                <span className='description_page_general'>{t('emergency:contact1')} <a className='underline text-secondary' href="tel:+506 8749-7337;">+506 8749-7337</a></span>
+                <span className='phone_span'>{t('emergency:contact2')}</span>
                 <div className='cellphone_container'>
                     <div className='cellphone_container_inner'>
-                        <PhoneItem name="Frontdesk" p1="+503 8749-7337;" link1="tel:+5018749-7337" />
-                    </div>
-                    <div className='cellphone_container_inner'>
-                        <PhoneItem name="Directorio interno #0" p1="+503 8749-7337;" link1="tel:+5018749-7337" />
-                        <PhoneItem name="Restaurante #315" p1="+503 8749-7337;" link1="tel:+5018749-7337" />
+                        <PhoneItem name={t('emergency:ext1')}/>
+                        <PhoneItem name={t('emergency:ext2')}/>
+                        <PhoneItem name={t('emergency:ext3')}/>
+                        <PhoneItem name={t('emergency:ext4')}/>
                     </div>
                 </div>
                 <FooterItem  transparent/>
