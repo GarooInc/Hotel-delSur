@@ -18,7 +18,7 @@ return (
     <div className="page bg-gray-700">
         <div className="flex flex-col w-full">
             <HeaderItem/>
-            <div className="w-full md:h-[480px]">
+            <div className="w-full md:h-[600px]">
                 <Carousel />
             </div>
             <div className='flex flex-col justify-center items-center w-full h-full bg-green p-10 md:p-14'>
