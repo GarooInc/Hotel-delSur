@@ -22,7 +22,7 @@ const TabCartItem = ({ collection }) => {
         const fetchData = async () => {
             try {
                 const records = await pb.collection(collection).getFullList({
-                    sort: '-created',
+                    sort: 'created',
                 });
                 setItems(records);
             } catch (error) {
@@ -69,7 +69,11 @@ const TabCartItem = ({ collection }) => {
             <div className="tabCart_container">
                 {filteredItems.map((item, index) => (
                     <div key={index} className={`bg-white px-4 pb-16 gap-2 flex flex-col relative min-w-60 ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
-                        <img className="tabCart_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                        {
+                            item.image && (
+                                <img className="tabCart_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
+                            )
+                        }
                         {
                             item[`title_${currentLocale}`] && (
                                 <h3 className="tabCart_title">{item[`title_${currentLocale}`]}</h3>
