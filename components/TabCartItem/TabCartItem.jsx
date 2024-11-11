@@ -68,7 +68,7 @@ const TabCartItem = ({ collection }) => {
             </div>
             <div className="tabCart_container">
                 {filteredItems.map((item, index) => (
-                    <div key={index} className={`bg-white px-4 pb-16 gap-2 flex flex-col relative min-w-60 ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
+                    <div key={index} className={`bg-white px-4 pb-16 gap-2 flex flex-col relative min-w-60 shadow-lg ${(index + 1) % 4 !== 0 ? 'md:border-r md:border-black' : ''} ${(index + 1) % 2 !== 0 ? 'md:border-r md:border-black' : ''}`}>
                         {
                             item.image && (
                                 <img className="tabCart_img" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
@@ -89,7 +89,6 @@ const TabCartItem = ({ collection }) => {
                                 <p className="text-light-brown text-xs  leading-none font-futura font-bold"> ¢{item.price}</p>
                             )
                         }
-                        <button className='secondary_button w-[200px] absolute bottom-4' onClick={() => addToCart(item)}>{t('general:services')}</button>
                     </div>
                 ))}
                 {notification && <CartNotification productName={actualProduct.title} productImage={`${backendUrl}/api/files/${actualProduct.collectionId}/${actualProduct.id}/${actualProduct.image}?token=`} productVariant={actualProduct.Variant} />}

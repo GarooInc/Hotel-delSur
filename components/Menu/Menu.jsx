@@ -6,7 +6,7 @@ import CartNotification from '@/components/CartNotification/CartNotification';
 import { useTranslation } from 'react-i18next';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-const Menu = ({collection}) => {
+const Menu = ({collection, textItems}) => {
     const [food, setFood] = useState([]);
     const [notification, setNotification] = useState(false);
     const [actualProduct, setActualProduct] = useState({});
@@ -129,7 +129,7 @@ const Menu = ({collection}) => {
                                 </select>
                             </div>
                         )}
-                        <button className="addtocart_button" onClick={() => addToCart(item)}>Add to cart</button>
+                        <div className="addtocart_button">{textItems}</div>
                     </div>
                 ))}
                 {notification && <CartNotification productName={actualProduct[`title_${currentLocale}`]} productVariant={actualProduct.variant} />}

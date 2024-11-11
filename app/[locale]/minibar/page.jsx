@@ -4,9 +4,9 @@ import TranslationsProvider from '@/components/TranslationsProvider'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import Menu from '@/components/Menu/Menu'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
-import FooterCart from '@/components/FooterCart/FooterCart'
+import FooterItem from '@/components/FooterItem/FooterItem'
 
-const namespaces = ['minibar', 'header']
+const namespaces = ['room_service', 'header']
 
 export default async function Minibar({ params: { locale }}) {
     const { t, resources } = await initTranslations(locale, namespaces)
@@ -17,8 +17,8 @@ export default async function Minibar({ params: { locale }}) {
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <main className="page bg-white">
             <HeaderItem v2 />
-            <Menu collection={"Room_Service_Bar"}/>
-            <FooterCart/>
+            <Menu collection={"Room_Service_Bar"} textItems={t('room_service:text_items')}/>
+            <FooterItem />
         </main>
         <LanguageSwitcher />
         </TranslationsProvider>

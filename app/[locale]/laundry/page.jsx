@@ -2,9 +2,10 @@ import React from 'react'
 import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
 import TabCartItem from '@/components/TabCartItem/TabCartItem'
-import FooterCart from '@/components/FooterCart/FooterCart'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
+import FooterItem from '@/components/FooterItem/FooterItem'
+import Menu from '@/components/Menu/Menu'
 
 
 const namespaces = ['laundry', 'home', 'general']
@@ -24,7 +25,7 @@ return (
             </div>
             <LanguageSwitcher />
             <TabCartItem collection={"laundry"} />
-            <FooterCart />
+            <FooterItem />
         </div>
     </TranslationsProvider>
   )

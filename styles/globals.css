@@ -216,11 +216,11 @@
 }
 
 .addtocart_button{
-  @apply rounded shadow justify-start items-center text-xs inline-flex font-futura bg-primary text-black px-2 py-1 absolute bottom-2 right-2;
+  @apply rounded justify-start items-center text-xs inline-flex font-futura text-gray-600 px-2 py-1 absolute bottom-2;
 }
 
 .menu_item{
-  @apply bg-white px-2 pb-12 shadow rounded-lg gap-2 flex flex-col relative;
+  @apply bg-white px-2 pb-10 shadow rounded-lg gap-2 flex flex-col relative;
 }
 
 .menu_title{
@@ -228,7 +228,7 @@
 }
 
 .menu_price{
-  @apply text-black text-xs font-light leading-none font-futura absolute bottom-2 left-2;
+  @apply text-black text-xs font-light leading-none font-futura py-4;
 }
 
 .menu_desc{

@@ -1,10 +1,10 @@
 import React from 'react'
 import initTranslations from '@/app/i18n'
 import TranslationsProvider from '@/components/TranslationsProvider'
-import FooterCart from '@/components/FooterCart/FooterCart'
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HeaderItem from '@/components/HeaderItem/HeaderItem'
 import Menu from '@/components/Menu/Menu'
+import FooterItem from '@/components/FooterItem/FooterItem'
 
 
 const namespaces = ['spa', 'home', 'general']
@@ -23,8 +23,8 @@ return (
                 </div>
             </div>
             <LanguageSwitcher />
-            <Menu collection={"spa"}/>
-            <FooterCart />
+            <Menu collection={"spa"} textItems={t('spa:text_items')}/>
+            <FooterItem />
         </div>
     </TranslationsProvider>
   )
