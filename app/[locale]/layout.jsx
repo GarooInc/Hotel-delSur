@@ -21,7 +21,15 @@ const RootLayout = ({children}) => {
             <meta property="og:description" content={metadata.description} />
             <meta property="og:image" content={metadata.image} />
             <meta property="og:url" content={metadata.url} />
-            <meta name="keywords" content="hotel, belize "></meta>            
+            <meta name="keywords" content="hotel, belize "></meta>      
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-FN3DRT8MFF"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)}
+              gtag('js', new Date());
+
+              gtag('config', 'G-FN3DRT8MFF');
+            </script>      
         </head>
         <body>
             <main className='app'>
