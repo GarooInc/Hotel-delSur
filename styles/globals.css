@@ -234,3 +234,8 @@
 .menu_desc{
   @apply text-black text-xs font-futura-light leading-none;
 }
+
+/* review */
+.review_label{
+  @apply font-futura text-lg text-black font-medium py-2;
+}
