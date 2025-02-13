@@ -16,7 +16,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <form className="flex flex-col w-full h-full pb-10 md:px-20">
+    <form className="flex flex-col w-full h-full pb-10">
       <div className="flex flex-col w-full">
         <label className='review_label'>{t('review:question1')}</label>
         <div className="flex flex-col w-full">
