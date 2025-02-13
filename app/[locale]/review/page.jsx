@@ -14,16 +14,16 @@ export default async function Reviews({ params: { locale }}) {
 
 return (
     <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <div className="page bg-white md:px-20 px-10 relative">
+        <div className="page bg-white relative">
             <HeaderItem />
-            <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-center items-center md:px-20 px-10'>
                 <h1 className="italictiempos_title">{t('review:title')}</h1>
                 <div className="description_page_general">
                     {t('review:desc')}
                 </div>
-            </div>
-            <ReviewForm />
+                <ReviewForm />
 
+            </div>
             <LanguageSwitcher />
         </div>
     </TranslationsProvider>
