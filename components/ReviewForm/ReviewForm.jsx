@@ -8,16 +8,75 @@ const ReviewForm = () => {
   const [selectedReason, handleRadioChange] = useRadioGroup('');
   const [selectedRelax, handleRadioChangeSecond] = useRadioGroup('');
   const [rating, setRating] = useState(0);
+  const [improvement, setImprovement] = useState('');
+  const [comments, setComments] = useState('');
+  const [message, setMessage] = useState([]);
 
   const { t } = useTranslation();
 
   const handleRatingChange = (e) => {
     setRating(parseInt(e.target.value));
   };
+
+  const handleImprovementChange = (e) => {
+    setImprovement(e.target.value);
+  }
+
+  const handleCommentsChange = (e) => {
+    setComments(e.target.value);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      reason1: selectedReason,
+      reason2: selectedRelax,
+      rating,
+      improvement,
+      comments,
+    };
+
+    try {
+      const response = await fetch('https://hooks.zapier.com/hooks/catch/15788984/2wh8px1/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setMessage(
+            {
+              message: t('review:success'),
+              type: 'success'
+            }
+        )
+      } else {
+        setMessage(
+            {
+              message: t('review:error'),
+              type: 'error'
+            }
+        )
+      }
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      alert('Error submitting review');
+      setMessage(
+          {
+            message: t('review:error'),
+            type: 'error'
+          }
+      )
+    }
+  };
+
     
 
   return (
-    <form className="flex flex-col w-full h-full pb-10">
+    <form className="flex flex-col w-full h-full pb-10 relative">
       <div className="flex flex-col w-full">
         <label className='review_label'>{t('review:question1')}</label>
         <div className="flex flex-col w-full">
@@ -73,16 +132,30 @@ const ReviewForm = () => {
         </div>
         <label className='review_label'>{t('review:question4')}</label>
         <textarea
+          onChange={handleImprovementChange}
           placeholder={t('review:specify')}
           className="textarea textarea-bordered textarea-md w-full bg-white"
         ></textarea>
         <label className='review_label'>{t('review:question5')}</label>
         <textarea
+          onChange={handleCommentsChange}
           placeholder={t('review:specify')}
           className="textarea textarea-bordered textarea-md w-full  bg-white"
         ></textarea>
       </div>
-      <button className="btn bg-primary/80 text-white w-full mt-4 border-none hover:bg-primary">{t('review:send')}</button>
+      
+      <button onClick={handleSubmit}
+      className="btn bg-primary text-white w-full mt-4 border-none hover:bg-primary hover:transform hover:scale-105 transition duration-300">
+        {t('review:send')}
+      </button>
+      {
+        message.message && (
+          <div className={`w-full ${message.type === 'success' ? 'bg-green-500' : 'bg-red-500'} shadow-md p-2 text-white mt-4  flex justify-center items-center animate-fade-in`}>
+            <p>{message.message}</p>
+          </div>
+        )
+      }
+      
     </form>
   );
 };
