@@ -5,6 +5,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import ButtonNav from '@/components/ButtonNav/ButtonNav'
 import ChatBubble from '@/components/ChatBubble/ChatBubble'
 import { HiInformationCircle } from "react-icons/hi2"
+import TopBar from '@/components/TopBar/TopBar'
 
 const namespaces = ['menu', 'header']
 
@@ -67,7 +68,8 @@ export default async function Home({ params: { locale }}) {
 
     return (
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
-        <main className="page bg-white pt-10 pb-20 md:py-10">
+        <main className="page bg-white pt-10 pb-20 md:py-20 relative">
+            <TopBar text={t('header:promobar')} />
             <div className='flex flex-col justify-center items-center'>
                 <img src="/assets/images/logo.png" alt="logo" className="w-[150px]" />
                 <div className="flex flex-col justify-center items-center gap-4 pt-10">
@@ -81,7 +83,7 @@ export default async function Home({ params: { locale }}) {
             <ChatBubble />
         </main>
         <LanguageSwitcher />
-        <a href='https://garooinc.com/' className="fixed top-10 left-10">
+        <a href='https://garooinc.com/' className="fixed top-12 left-10">
             <HiInformationCircle className="info-icon text-4xl text-primary" />
         </a>
         </TranslationsProvider>

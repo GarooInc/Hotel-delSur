@@ -240,3 +240,36 @@
   @apply font-futura text-lg text-black font-medium py-2;
 }
 
+/* top bar */
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%); 
+  }
+  100% {
+    transform: translateX(-100%); 
+  }
+}
+
+.topbar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.top-bar-text {
+  white-space: nowrap;
+  animation: slide 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .top-bar-text {
+    animation: slide 15s linear infinite;
+    width: 150%;
+  }
+}

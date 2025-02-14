@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import RadioButton from '../RadioButton/RadioButton';
 import useRadioGroup from '../../hooks/useRadioGroup';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from "next/navigation"
 
 const ReviewForm = () => {
   const [selectedReason, handleRadioChange] = useRadioGroup('');
@@ -11,6 +12,8 @@ const ReviewForm = () => {
   const [improvement, setImprovement] = useState('');
   const [comments, setComments] = useState('');
   const [message, setMessage] = useState([]);
+
+  const router = useRouter();
 
   const { t } = useTranslation();
 
@@ -37,8 +40,9 @@ const ReviewForm = () => {
       comments,
     };
 
+
     try {
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/15788984/2wh8px1/', {
+      const response = await fetch('https://hotel-del-sur-zapier-api.koyeb.app/webhook', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,6 +57,11 @@ const ReviewForm = () => {
               type: 'success'
             }
         )
+
+        setTimeout(() => {
+          router.push('/');
+        }
+        ,4000);
       } else {
         setMessage(
             {
@@ -62,7 +71,6 @@ const ReviewForm = () => {
         )
       }
     } catch (error) {
-      console.error('Error submitting review:', error);
       alert('Error submitting review');
       setMessage(
           {
@@ -144,10 +152,12 @@ const ReviewForm = () => {
         ></textarea>
       </div>
       
-      <button onClick={handleSubmit}
+      {
+        !message.message &&( <button onClick={handleSubmit}
       className="btn bg-primary text-white w-full mt-4 border-none hover:bg-primary hover:transform hover:scale-105 transition duration-300">
         {t('review:send')}
-      </button>
+      </button>)
+      }
       {
         message.message && (
           <div className={`w-full ${message.type === 'success' ? 'bg-green-500' : 'bg-red-500'} shadow-md p-2 text-white mt-4  flex justify-center items-center animate-fade-in`}>

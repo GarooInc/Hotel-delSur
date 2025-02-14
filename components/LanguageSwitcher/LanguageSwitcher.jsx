@@ -39,7 +39,7 @@ const LanguageSwitcher = () => {
 
 
     return (
-        <div className='absolute top-2 right-0 p-4 dropdown z-0'>
+        <div className='absolute top-4 right-0 p-4 dropdown z-0'>
           <div tabIndex={0} role="button" className="m-4 bg-transparent">
             <IoLanguage className="text-primary text-4xl" />
           </div>
