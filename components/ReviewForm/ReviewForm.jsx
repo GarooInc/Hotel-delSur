@@ -82,6 +82,7 @@ const ReviewForm = () => {
           className="textarea textarea-bordered textarea-md w-full  bg-white"
         ></textarea>
       </div>
+      <button className="btn bg-primary/80 text-white w-full mt-4 border-none hover:bg-primary">{t('review:send')}</button>
     </form>
   );
 };
