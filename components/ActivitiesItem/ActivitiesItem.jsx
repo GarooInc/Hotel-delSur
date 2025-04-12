@@ -43,7 +43,7 @@ const ActivitiesItem = () => {
             activities.map((item, index) => (
                 <div key={index} className={`bg-white md:h-52 shadow rounded-lg gap-2 flex relative md:flex-row flex-col md:justify-start justify-center`}>
                     <img className="md:h-full md:w-48 w-full h-80 rounded-lg object-cover" src={`${backendUrl}/api/files/${item.collectionId}/${item.id}/${item.image}?token=`} alt={item.name} />
-                    <div className='flex flex-col gap-2  md:w-3/5'>
+                    <div className='flex flex-col gap-2  md:w-3/5 p-4'>
                         <h3 className="text-black text-lg leading-tight font-futura mt-2">{item[`title_${currentLocale}`]}</h3>
                         {
                             item.location && (
