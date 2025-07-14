@@ -30,7 +30,7 @@ const ExperienceInnerItem = ({experienceId}) => {
     }, [current]);
 
   return (
-    <div classnName="w-full">
+    <div className="w-full">
         {
             loading ? <span className="loading loading-spinner loading-sm"></span>            : (
                 <div className='md:flex flex-col md:flex-row justify-center w-full items-stretch'>
