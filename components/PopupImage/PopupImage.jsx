@@ -1,13 +1,16 @@
 "use client"
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import PocketBase from 'pocketbase'
+
+const popupFields = ['popup_img', 'popup_image']
 
 const PopupImage = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [imageUrl, setImageUrl] = useState('')
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+  const popupRecordId = process.env.NEXT_PUBLIC_POPUP_WELCOME_RECORD_ID
 
   useEffect(() => {
     const loadImage = async () => {
@@ -17,13 +20,19 @@ const PopupImage = () => {
         const pb = new PocketBase(backendUrl)
         pb.autoCancellation(false)
 
-        const records = await pb.collection('welcome').getFullList({})
-        const record = records?.[0]
+        let record = null
+
+        if (popupRecordId) {
+          record = await pb.collection('welcome').getOne(popupRecordId)
+        } else {
+          const filter = popupFields.map((field) => `${field} != ""`).join(' || ')
+          const records = await pb.collection('welcome').getFullList({ filter })
+          record = records?.[0]
+        }
 
         if (!record) return
 
-        const imageField = ['popup_img', 'popup_image', 'image', 'carousel_img'].find((field) => Boolean(record[field]))
-
+        const imageField = popupFields.find((field) => Boolean(record[field]))
         if (!imageField) return
 
         const url = `${backendUrl}/api/files/${record.collectionId}/${record.id}/${record[imageField]}?token=`
@@ -35,7 +44,7 @@ const PopupImage = () => {
     }
 
     loadImage()
-  }, [backendUrl])
+  }, [backendUrl, popupRecordId])
 
   if (!imageUrl || !isOpen) return null
 
