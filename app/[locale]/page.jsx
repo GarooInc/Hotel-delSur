@@ -6,6 +6,7 @@ import ButtonNav from '@/components/ButtonNav/ButtonNav'
 import ChatBubble from '@/components/ChatBubble/ChatBubble'
 import { HiInformationCircle } from "react-icons/hi2"
 import TopBar from '@/components/TopBar/TopBar'
+import PopupImage from '@/components/PopupImage/PopupImage'
 
 const namespaces = ['menu', 'header']
 
@@ -70,6 +71,7 @@ export default async function Home({ params: { locale }}) {
         <TranslationsProvider locale={locale} namespaces={namespaces} resources={resources}>
         <main className="page bg-white pt-10 pb-20 md:py-20 relative">
             <TopBar text={t('header:promobar')} />
+            <PopupImage />
             <div className='flex flex-col justify-center items-center'>
                 <img src="/assets/images/logo.png" alt="logo" className="w-[150px]" />
                 <div className="flex flex-col justify-center items-center gap-4 pt-10">
