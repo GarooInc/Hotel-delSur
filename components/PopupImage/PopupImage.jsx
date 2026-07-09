@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import PocketBase from 'pocketbase'
 
-const popupFields = ['popup_img', 'popup_image']
+const popupFields = ['popup_img', 'popup_image', 'carousel_img']
 
 const PopupImage = () => {
   const [isOpen, setIsOpen] = useState(false)
