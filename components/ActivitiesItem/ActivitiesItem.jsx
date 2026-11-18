@@ -62,10 +62,10 @@ const ActivitiesItem = () => {
                             )
                         }
                         {
-                            item.price != 0 && (
+                            (item.price_note || item.price != 0) && (
                                 <div className="flex items-center text-black leading-none gap-2">
                                     <FaMoneyBill className="icon_activities text-md" />
-                                    <p className='text-black text-md font-futuralight leading-6 tracking-tight'>{item.price}</p>
+                                    <p className='text-black text-md font-futuralight leading-6 tracking-tight'>{(currentLocale === 'en' && item.price_note_en) || item.price_note || item.price}</p>
                                 </div>
                             )
                         }
